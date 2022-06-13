@@ -1,0 +1,107 @@
+# YAML
+
+# YAML Ain’t markup language
+# YAML is a data serialization language, it includes Unicode printable chars
+# YAML matches native data structures of its languages: Perl, Python, PHP, Ruby and JavaScript
+# YAML data is portable between programming languages, it includes data consistent data model
+
+# Rules for creating YAML files:
+# YAML ----> CASE SENSITIVE <-----
+# .yaml extension
+# NO TABS, USE SPACES !
+
+# Basic components of a YAML file
+# 1. Conventional Block Format
+# ---> use !!! hyphen+space !!! to begin a new item in a specified list
+
+ --- # A list
+ - Something here 1
+ - Something here 2
+
+# 2. Inline Format
+# ---> use comma and space + the items are enclosed in JSON
+
+ --- # A list2
+ [one, two, three]
+
+# 3. Folded Text
+# --->  converts newlines to spaces + removes the leading whitespace
+
+ list: [One, Two]
+ list2:
+  - Something 1
+  - Something 2
+
+# 4. YAML Basic Elements
+# comments : same as in python, separate them w/ whitespace
+# denote structure ->>> use indentation of whitespace
+# !!! NO TABS !!!
+# !!!!!!!!!!! List elements have A LEADING HYPHEN  !!!!!!!!!!
+#  !!! List elements -> put them in [] and separate them w/ ,
+# Associative arrays -> dict in python; we declare them using colon ( : ) like key-value pair + are in curly braces {}
+# 3 hyphens : we use --- to separate multiple docs w/ single streams
+# repeated nodes in each file ->> initially denoted by an ampersand (&) + by an asterisk (*) mark later
+# YAML ALWAYS REQUIRES colons and commas used as list separators followed by space with scalar values !!!!
+# Nodes should be labelled with an exclamation mark (!) or double exclamation mark (!!),
+# followed by string which can be expanded into an URI or URL
+
+# 5. Indentation and Separation
+
+# 5.1. Indentation
+# there ARE NOT mandatory spaces and there IS NO NEED to be consistent
+# flow blocks MUST BE intended with at least SOME SPACES with surrounding current block level
+# flow content of YAML spans multiple lines
+# flow content begins with { or [
+# block list items include same indentation as the surrounding block level -> is considered as a part of indentation
+
+# 5.2. Separation of Strings
+# use DOUBLE QUOTES !!!
+# if we escape the /n chars in a given string, it is completely removed and translated into space value
+
+# 6. Comments
+# YAML comments are SINGLE LINE COMMENTS, it does not support multiple line comments
+
+# 7. Collections and Structures
+# YAML block collections use indentation for scope
+# each entry begins with A NEW LINE!!!
+# block sequences in collections indicate each entry with !!! A DASH AND SPACE !!! (-)
+# block collections styles ARE NOT denoted by any specific indicator
+# block collection can distinguished from other scalar quantities:
+#       --->> with an identification of KEY VALUE PAR IN THEM
+# Mappings are the representation of key value as included in JSON structure, use colon and space (:)
+# mappings are used for creation of APIs and mobile apps
+
+# mapping scalars to scalars :
+  a : 1
+  b : 2
+
+# mapping scalars to sequences :
+  a :
+   - 1
+   - 2
+  b :
+   - 3
+   - 4
+
+# sequence mappings w/ collections:
+  -
+  a : 2
+  b : 22
+  -
+  a : 3
+  b : 33
+
+# With collections YAML includes flow styles using EXPLICIT indicators instead of using indentation to denote space
+# the flow sequence in collections is written as comma separated list enclosed in []
+# the best illustration for collection which is included in PHP frameworks like symphony
+
+# These collections are stored in documents
+# the separation of documents in YAML is denoted with three hyphens (---)
+# the end of document is marked with three dots (…)
+# A question mark with a space indicates a complex mapping in structure !!!
+# within a block collection, a user can include structure with a dash, colon and question mark
+
+# mapping between sequences:
+ - 2022-06-01
+ ? [ one, two ]
+ : [ 2022-05-01, 2022-05-03, 2022-05-09]
