@@ -105,3 +105,39 @@
  - 2022-06-01
  ? [ one, two ]
  : [ 2022-05-01, 2022-05-03, 2022-05-09]
+
+# 6. Scalars and tags
+#Scalars in YAML are written IN BLOCK FORMAT using a literal type which is denoted as( | ) : it denotes line breaks count.
+# In YAML, scalars are written in folded style (>)
+# where each line denotes a folded space which ends with an empty line or more indented line.
+
+# new lines
+ --- |
+\//||\/||
+// || ||__
+
+# untagged nodes are specified with a specific type of the application : seq, map and str types for YAML tag repository
+
+# Integer tags -
+# numeric tags
+canonical: 12345
+decimal: +3,14
+sexagecimal: 3:25:45
+octal: 014
+hexadecimal: 0xC
+
+# Floating point numbers
+# exponential tags
+canonical: 1.23015e+3
+exponential: 3.13e+01
+sexagecimal: 20:30.15
+fixed: 1,230.15
+negative infinity: -.inf
+not a number: .NaN
+
+# Miscellaneous Tags
+# It includes a variety of integer, floating and string values embedded in them
+null: ~
+true: y
+false: n
+string: '12345'
