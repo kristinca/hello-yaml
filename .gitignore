@@ -5,13 +5,14 @@ __pycache__
 .idea/
 
 # Env
-.env
 venv/
 
 # Database
 
+
 # Static folder at project root
 /static/
+the_data.csv
 
 # macOS
 ._*
