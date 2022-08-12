@@ -10,12 +10,12 @@ def set_data_params(apiParams, posArgs):
     :return: dict
     """
     dataDict = dict()
-    start = time.perf_counter()
+    # start = time.perf_counter()
     for i in range(len(apiParams)):
         if posArgs[i]:
             dataDict[f'{apiParams[i]}'] = posArgs[i]
-    end = time.perf_counter()
-    print(f'The mapping finished in {round(end - start, 8)} seconds.\n')
+    # end = time.perf_counter()
+    # print(f'The mapping finished in {round(end - start, 8)} seconds.\n')
     return dataDict
 
 
@@ -37,3 +37,4 @@ def set_args():
         return parser.parse_args()
     except Exception as e:
         print(e)
+
