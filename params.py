@@ -2,6 +2,18 @@ import argparse
 import time
 
 
+def set_data_type(paramsDict, apiParamList, dataType):
+    """
+    Function to map the data parameters to the data type needed for the API
+    :param paramsDictKeys: dict, the mapped positional arguments to the API parameters
+    :param apiParamList: list of the same data type API parameters
+    :param dataType: the data type
+    """
+    for el in apiParamList:
+        if el in paramsDict.keys():
+            paramsDict[el] = dataType(paramsDict[el])
+
+
 def set_data_params(apiParams, posArgs):
     """
     A function to map the positional arguments to the API parameters
@@ -27,11 +39,12 @@ def set_args():
     try:
         parser = argparse.ArgumentParser()
         parser.add_argument('--one', type=int, help='first REQUIRED', required=True)
-        parser.add_argument('--two', type=str, help='two REQUIRED', required=True)
-        parser.add_argument('--three', type=list, help='three REQUIRED', required=False)
-        parser.add_argument('--four', type=tuple, help='four REQUIRED', required=True)
+        parser.add_argument('--two', type=str, help='two REQUIRED', required=False)
+        # ---->>> !!! DO NOT USE type=list nor type=tuple nor type=set9 !!! <----
+        parser.add_argument('--three', nargs='+',  help='three REQUIRED', required=False)
+        parser.add_argument('--four', nargs='+', help='four REQUIRED', required=False)
         parser.add_argument('--five', type=float, help='five', required=False)
-        parser.add_argument('--six', type=set, help='six REQUIRED', required=True)
+        parser.add_argument('--six', nargs='+', help='six REQUIRED', required=False)
         parser.add_argument('--seven', type=int, help='seven', required=False)
         # parser.add_argument('--one1', type=int, help='first REQUIRED', required=True)
         # parser.add_argument('--two1', type=str, help='two REQUIRED', required=True)

@@ -1,5 +1,5 @@
 import time
-from params import set_args, set_data_params
+from params import set_args, set_data_params, set_data_type
 
 if __name__ == '__main__':
     args = set_args()
@@ -21,6 +21,10 @@ if __name__ == '__main__':
     data = {k: v for k,v in zip(api_params, positional_params) if v is not None}
     end = time.perf_counter()
     print(f'The mapping with builtin function finished in {round(end - start, 8)} seconds.\n')
+
+    set_data_type(data, ['fOuR'], tuple)
+    set_data_type(data, ['sIx'], set)
+
     print(data, '\n')
 
     # with the maping function
@@ -28,5 +32,8 @@ if __name__ == '__main__':
     data_map = set_data_params(api_params, positional_params)
     end = time.perf_counter()
     print(f'The mapping with the mapping function finished in {round(end - start, 8)} seconds.\n')
-    # print(positional_params)
+
+    set_data_type(data_map, ['fOuR'], tuple)
+    set_data_type(data_map, ['sIx'], set)
+
     print(data_map)
