@@ -30,3 +30,8 @@ $RECYCLE.BIN/
 .vscode/
 .history/
 *.code-workspace
+/ime.py
+/new.py
+/num.py
+/proba.py
+/test_params.py
